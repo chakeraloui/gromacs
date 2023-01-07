@@ -1,11 +1,9 @@
-# Gromacs interactive command line on a linux OS
-# Molecular Dynamics Simulation of protein
+# Molecular Dynamics Simulation of protein using GROMACS
 ## Aim
 Analyse the structural effect of missence genetic variants by comparing the wild type and the mutated protein
 
 ## Requirements
-### Install gromacs
-https://www.gromacs.org/Downloads 
+### Install gromacs (https://www.gromacs.org/Downloads) 
 ### Install Pymol (https://pymol.org/2/)
 ### Install UCSF Chimera (https://www.cgl.ucsf.edu/chimera/download.html)
 ### Install xmgrace (https://plasma-gate.weizmann.ac.il/Grace/)
