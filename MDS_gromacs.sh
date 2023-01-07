@@ -68,6 +68,6 @@ echo -e "Fin de la simulation \n"
 
 
 #https://tutorials.gromacs.org/md-intro-tutorial.html à tester notebook jupyter
-
+# xmgrace potential.xvg
 
 
