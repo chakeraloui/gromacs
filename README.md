@@ -3,7 +3,7 @@
 ## Aim
 Analyse the structural effect of missence genetic variants by comparing the wild type and the mutated protein
 
-## Dependencies
+## Requirements
 ### Install gromacs
 https://www.gromacs.org/Downloads 
 ### Install Pymol (https://pymol.org/2/)
