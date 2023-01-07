@@ -8,6 +8,7 @@ Analyse the structural effect of missence genetic variants by comparing the wild
 https://www.gromacs.org/Downloads 
 ### Install Pymol (https://pymol.org/2/)
 ### Install UCSF Chimera (https://www.cgl.ucsf.edu/chimera/download.html)
+### Install xmgrace (https://plasma-gate.weizmann.ac.il/Grace/)
 
 ### Prepare the pdb protein
 Many information about the existing models may be found on Uniprot (https://www.uniprot.org/uniprotkb) 
