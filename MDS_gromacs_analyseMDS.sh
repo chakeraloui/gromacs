@@ -9,6 +9,7 @@ gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
 #Step-2: Calculation of RMSD 
 gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
 #Choose 4 ("Backbone") for both the least-squares fit and the group for RMSD calculation.
+
 #If we wish to calculate RMSD relative to the crystal structure, we could issue the following:
 gmx rms -s em.tpr -f md_0_1_noPBC.xtc -o rmsd_xtal.xvg -tu ns
 
@@ -27,6 +28,14 @@ gmx hbond -s md_0_1.tpr -f md_0_1_noPBC.xtc -num hydrogen-bonds.xvg
 #Step-6: Calculation of Total Solvent Accessible Surface Area 
 gmx sasa -s md_0_1.tpr -f md_0_1_noPBC.xtc -o area.xvg -tu ns 
 # choose Protein
+
+#visualiser le tout
+xmgrace rmsd.xvg
+xmgrace rmsf.xvg #visualiser avec xmgrace
+xmgrace gyrate.xvg
+xmgrace hydrogen-bonds.xvg
+xmgrace area.xvg
+
 
 # Pour faire des ACP sur les trajectoires
 # http://zhenglz.blogspot.com/2019/01/a-step-by-step-tutorial-to-perform-pca.html 
