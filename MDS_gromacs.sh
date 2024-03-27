@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+# a creer dossier config et dossier data
 # Dr Chaker Aloui, molecular dynamics simulation, gromacs 
 tput bold
 echo -e "Chaker ALOUI \n"
@@ -7,9 +7,41 @@ echo -e "Running gromacs MDS ...\n"
 
 configPath="./configs"
 #dataPath="./data" # mettre les models pdb ici
-prot2simulate="./data/model.pdb" # a changer a chaque fois
+#prot2simulate="./data/model.pdb" # a changer a chaque fois
 outPutDir="simulation_date" # à modifier à chaque analyse
 mkdir $outPutDir
+
+#pip install propka
+# Vérifie si 'propka' est installé en utilisant pip list
+if pip list | grep -F propka > /dev/null; then
+    echo "Le package 'propka' est déjà installé."
+else
+    echo "Installation du package 'propka'..."
+    pip install propka
+    if [ $? -eq 0 ]; then
+        echo "'propka' a été installé avec succès."
+    else
+        echo "L'installation de 'propka' a échoué."
+    fi
+fi
+
+############TOPOLOGY##########################
+##1##pdb2gmx to generate topolgy, restrain and processed pdb file used to generate a file that can be used by GROMACS
+
+#RepairPDB:It is highly recommended to repair your structures before you do any modelling with FoldX. RepairPDB identify those residues which have bad torsion angles, or VanderWaals' clashes, or total energy, and repairs them. The minimal configuration file for RepairPDB is:
+
+#It can be run from the command line:
+#echo "Downloading $1.pdb "
+#wget http://files.rcsb.org/download/$1.pdb
+
+echo ""
+FoldX --command=RepairPDB --pdb=$1.pdb
+
+
+echo "Assessing the protonation states of the protein.."
+propka3 $1\_Repair.pdb  #_clean.pdb
+
+
 # script a partir d un tuto internet:
 # Lysozyme PDB code 1AKI http://www.mdtutorials.com/gmx/lysozyme/01_pdb2gmx.html
 
