@@ -1,0 +1,12 @@
+; nvt.mdp - used for NVT equilibration
+define                  = -DPOSRES  ; Position restraints on heavy atoms
+integrator              = md        ; Leap-frog integrator
+nsteps                  = 50000     ; 100 ps
+dt                      = 0.002     ; 2 fs
+tcoupl                  = V-rescale ; Modified Berendsen thermostat
+tc-grps                 = Protein Non-Protein ; Two coupling groups
+tau_t                   = 0.1 0.1   ; Time constant, in ps
+ref_t                   = 300 300   ; Reference temperature, in K
+gen_vel                 = yes       ; Generate initial velocities
+gen_temp                = 300       ; Temperature for velocity generation
+gen_seed                = -1        ; Generate a random seed
