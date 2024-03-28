@@ -1,6 +1,6 @@
 ; md.mdp - used for production MD run
 integrator              = md        ; Leap-frog integrator
-nsteps                  = 50000000  ; 100 ns
+nsteps                  = 50000000  ; 100 ns #modifier ici le temps de simulation
 dt                      = 0.002     ; 2 fs
 nstxout                 = 5000      ; Save coordinates every 10 ps
 nstvout                 = 5000      ; Save velocities every 10 ps
