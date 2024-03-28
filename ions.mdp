@@ -1,0 +1,13 @@
+; ions.mdp - used for adding ions to neutralize the system or reach a specific ionic strength
+integrator              = steep     ; Steepest descent minimizer for energy minimization
+nsteps                  = 50000     ; Enough steps to ensure ions are well-placed
+emtol                   = 1000.0    ; Stop minimization when max force < 1000.0 kJ/mol/nm
+emstep                  = 0.01      ; Energy minimization step size
+nstxout                 = 0         ; Do not save coordinates since this is just for ion placement
+nstvout                 = 0         ; Do not save velocities
+nstenergy               = 0         ; Do not save energies
+nstlog                  = 1000      ; Frequency to update the log file
+coulombtype             = PME       ; Particle Mesh Ewald for long-range electrostatics
+rcoulomb                = 1.0       ; Short-range electrostatic cutoff
+rvdw                    = 1.0       ; Short-range van der Waals cutoff
+pbc                     = xyz       ; Periodic boundary conditions in all directions
