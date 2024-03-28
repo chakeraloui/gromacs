@@ -1,0 +1,15 @@
+; npt.mdp - used for NPT equilibration
+define                  = -DPOSRES  ; Position restraints on heavy atoms
+integrator              = md        ; Leap-frog integrator
+nsteps                  = 50000     ; 100 ps
+dt                      = 0.002     ; 2 fs
+tcoupl                  = V-rescale ; Temperature coupling
+tc-grps                 = Protein Non-Protein
+tau_t                   = 0.1 0.1   ; Time constant, in ps
+ref_t                   = 300 300   ; Reference temperature, in K
+pcoupl                  = Parrinello-Rahman ; Pressure coupling
+pcoupltype              = isotropic ; Isotropic pressure scaling
+tau_p                   = 2.0       ; Pressure relaxation time constant, in ps
+ref_p                   = 1.0       ; Reference pressure, in bar
+compressibility         = 4.5e-5    ; Compressibility of water, bar^-1
+gen_vel                 = no        ; Velocity generation off
