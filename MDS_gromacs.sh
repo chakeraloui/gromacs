@@ -51,19 +51,19 @@ printf "13 0\n" | gmx genion -s ions.tpr -o $1\_solv_ions.gro -p topol.top -pnam
 
 # Step Five: Energy Minimization (wget http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp) 
 gmx grompp -f minim.mdp -c $1\_solv_ions.gro -p topol.top -o em.tpr
-gmx mdrun -v -deffnm em # attention
+gmx mdrun -v -deffnm em -nb gpu # attention # ajout -nb gpu
 printf "10 0\n" | gmx energy -f em.edr -o potential.xvg
 # At the prompt, type "10 0" to select Potential (10); zero (0) terminates input. 
 
 # Step Six: Equilibration (wget http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp) 
 gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
-gmx mdrun -deffnm nvt -v
+gmx mdrun -deffnm nvt -v -nb gpu # ajout -nb gpu
 printf "16 0\n" | gmx energy -f nvt.edr -o temperature.xvg
 # Type "16 0" at the prompt to select the temperature of the system and exit
 
 # Step Seven: Equilibration 2 (wget http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp) 
 gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
-gmx mdrun -deffnm npt -v
+gmx mdrun -deffnm npt -v -nb gpu # ajout -nb gpu
 printf "18 0\n" | gmx energy -f npt.edr -o pressure.xvg
 # Type "18 0" at the prompt to select the pressure of the system and exit. ATTENSION AU NUM
 printf "24 0\n" | gmx energy -f npt.edr -o density.xvg
