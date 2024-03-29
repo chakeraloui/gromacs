@@ -14,11 +14,11 @@ printf "Protein\nSystem\n" |  gmx trjconv -s $1\_md_0_1.tpr -f $1\_md_0_1.xtc -o
 #You need to provide two files names here, one is .tpr file while the second one is .xtc file.
 #Once this command is successfully executed, now you can perform RMSD, RMSF and other analysis 
 #Step-2: Calculation of RMSD 
-printf "Backbone\n" |gmx rms -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_rmsd.xvg -tu ns
+printf "Backbone\nBackbone\n" | gmx rms -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_rmsd.xvg -tu ns
 #Choose 4 ("Backbone") for both the least-squares fit and the group for RMSD calculation.
 
 #If we wish to calculate RMSD relative to the crystal structure, we could issue the following:
-gmx rms -s em.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_rmsd_xtal.xvg -tu ns
+printf "Backbone\nBackbone\n" | gmx rms -s em.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_rmsd_xtal.xvg -tu ns
 
 #Step-3: Calculation of RMSF 
 printf "Backbone\n" | gmx rmsf -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_rmsf.xvg -res
