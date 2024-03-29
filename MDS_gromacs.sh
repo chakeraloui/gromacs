@@ -70,8 +70,8 @@ printf "24 0\n" | gmx energy -f npt.edr -o density.xvg
 # this time using energy and entering "24 0" at the prompt
 
 # Step Eight: Production MD (wget http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp)
-gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
-gmx mdrun -deffnm md_0_1 -nb gpu -v # utilise tous les gpu
+gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o $1\_md_0_1.tpr
+gmx mdrun -deffnm $1\_md_0_1 -nb gpu -v # utilise tous les gpu
 
 
 # fin de la simulation
