@@ -37,7 +37,7 @@ FoldX --command=RepairPDB --pdb=$1.pdb # ça donne un fichier AAAA_Repair.pdb
 #wget http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp
 
 # Step One: Prepare the Topology
-grep -v HOH $1\_Repair.pdb | grep -v HETATM | grep -v CONECT > $1\_clean.pdb # enlever l eau et autres
+grep -v HETATM $1\_Repair.pdb | grep -v CONECT > $1\_clean.pdb # enlever l eau, les ligands et autres
 
 #Creation of topology file 
 printf "15 0\n" | gmx pdb2gmx -f $1\_clean.pdb -o $1\_processed.gro -water spce #Choisir OPLS (15)
