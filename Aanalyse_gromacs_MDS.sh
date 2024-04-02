@@ -25,7 +25,7 @@ printf "Backbone\n" | gmx rmsf -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_
 #select Backbone 
 
 #Step-4: Calculation of Radius of Gyration 
-printf "Protein\n" | gmx gyrate -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_gyrate.xvg
+printf "Protein\n" | gmx gyrate -s $1\_md_0_1.tpr -f $1\_md_0_1_noPBC.xtc -o $1\_gyrate.xvg -tu ns 
 #Choose group 1 (Protein) for analysis.
 
 #Step-5: Calculation of Total Number of Hydrogen bonds 
