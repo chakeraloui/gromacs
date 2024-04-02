@@ -43,6 +43,6 @@ xmgrace $1\_gyrate.xvg
 xmgrace $1\_hydrogen-bonds.xvg
 xmgrace $1\_sasa.xvg
 
-
+# les graphiques peuvent etre fait avec cet outil en ligne : https://bioinfoxpert.de/gromancer-the-md-wizard/?fbclid=IwAR0qNq9c8ITHQLHfK4s4VAREdBzeSq9xq4m_jg2fU1rkRtf719cdOk580Zg_aem_AUGjOrhKz_yJUv0piVBwUTd5NqqWrKAefW7z108YbZ3jPWkpc_9_WLuQtrxE9hne7MtlVYgZg3c3b9cgLz3dSWFK 
 # Pour faire des ACP sur les trajectoires
 # http://zhenglz.blogspot.com/2019/01/a-step-by-step-tutorial-to-perform-pca.html 
